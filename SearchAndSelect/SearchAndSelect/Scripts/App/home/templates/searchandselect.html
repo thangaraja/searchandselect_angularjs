@@ -1,0 +1,14 @@
+﻿<div class="searchandselect" ng-class="{ active: showList }">    
+    <div ng-click="show()">{{selecteditem.name}}</div>
+    <ul class="dropdown">
+        <li>
+            <input type="text" />
+            <i class="glyphicon glyphicon-search"></i>
+        </li>
+        <li>Showing records 1 to 10 of 50 <span></span></li>
+        <li ng-repeat="item in values" ng-click="selectItem(item)" >
+            <span>{{item.name}}</span>
+            <i class="glyphicon glyphicon-ok" ng-show="isActive(item)"></i>
+        </li>
+    </ul>
+</div>
