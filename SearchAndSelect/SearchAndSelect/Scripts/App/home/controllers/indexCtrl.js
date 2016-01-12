@@ -1,31 +1,35 @@
 ﻿'use strict';
 appRoot.controller('indexCtrl', ['$scope', 'indexSvc', function ($scope, indexSvc) {
 
-    $scope.initialize = function () {
+    var fetchingRecords = false;
 
+    $scope.getCountries = function (searchKey, pagenumber) {
 
-        indexSvc.getCountries("","",function(result) {
+        if (fetchingRecords) return
+        fetchingRecords = true;
 
-
-        });
-       
-        $scope.colours = [{
-            name: "Red",
-            id: "#F21B1B"
-        }, {
-            name: "Blue",
-            id: "#1B66F2"
-        }, {
-            name: "Green",
-            id: "#07BA16"
-        }];
-        $scope.colour = {
-            name: "Red",
-            id: "#F21B1B"
-        };
-
+        indexSvc.getCountries(searchKey, pagenumber)
+                    .then(function (countries) {
+                        if (pagenumber === 1)
+                            $scope.countries = countries;
+                        else {
+                            $scope.countries = $scope.countries.concat(countries);
+                        }
+                        fetchingRecords = false;
+                    },
+                        function (errorMessage) {
+                            console.warn(errorMessage);
+                            fetchingRecords = false;
+                        });
     };
 
-    $scope.initialize();
-   
+    $scope.countries = [];
+
+    $scope.country = {
+        Key: "India",
+        Value: "In"
+    };
+
+    $scope.getCountries("", 1);
+
 }]);

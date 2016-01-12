@@ -10,7 +10,7 @@ namespace SearchAndSelect.Controllers
     public class HomeController : Controller
     {
 
-        public JsonResult Countries()
+        public JsonResult Countries(string searchKey, int pageNumber = 1)
         {
             Dictionary<string, string> objDic = new Dictionary<string, string>();
             foreach (CultureInfo ObjCultureInfo in CultureInfo.GetCultures(CultureTypes.SpecificCultures))
@@ -21,7 +21,7 @@ namespace SearchAndSelect.Controllers
                     objDic.Add(objRegionInfo.EnglishName, objRegionInfo.TwoLetterISORegionName.ToLower());
                 }
             }
-            var obj = objDic.OrderBy(p => p.Key);
+            var obj = objDic.OrderBy(p => p.Key).Skip((pageNumber-1) * 10).Take(10);
             return Json(obj, JsonRequestBehavior.AllowGet);
         }
 
@@ -30,18 +30,5 @@ namespace SearchAndSelect.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }

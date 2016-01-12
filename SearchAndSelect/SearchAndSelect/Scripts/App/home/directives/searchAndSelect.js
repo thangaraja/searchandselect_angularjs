@@ -1,13 +1,16 @@
 ﻿appRoot.directive('searchandselect', function ($rootScope) {
     return {
+        replace: true,
         restrict: 'E',
         scope: {
             values: "=",
-            selecteditem: "="
+            selecteditem: "=",
+            key: "@",
+            onscroll: "&"
         },
-        templateUrl: '/Scripts/app/home/templates/searchandselect.html?30',
-        link: function (scope) {
-           
+        templateUrl: '/Scripts/app/home/templates/searchandselect.html?54',
+        link: function (scope, elm, attr) {
+
             scope.showList = false;
 
             scope.selectItem = function (item) {
@@ -16,7 +19,16 @@
             };
 
             scope.isActive = function (item) {
-                return item.name === scope.selecteditem.name;
+                return item[scope.key] === scope.selecteditem[scope.key];
+            };
+
+            scope.textChanged = function (searchKey) {
+                if (searchKey.length > 2) {
+                    scope.onscroll({
+                        searchKey: searchKey,
+                        pagenumber: 1
+                    });
+                }
             };
 
             scope.show = function () {
@@ -30,7 +42,21 @@
                     });
             });
 
-           
+            elm.find(".dropdown").bind('scroll', function () {
+                var currentItem = $(this);
+                if (currentItem.scrollTop() + currentItem.innerHeight() >= currentItem[0].scrollHeight) {
+
+                    if (!scope.pagenumber) scope.pagenumber = 2;
+                    else
+                        scope.pagenumber = scope.pagenumber + 1;
+
+                    scope.onscroll({
+                        searchKey: scope.searchKey,
+                        pagenumber: scope.pagenumber
+                    });
+                }
+            });
+
         }
     }
 });

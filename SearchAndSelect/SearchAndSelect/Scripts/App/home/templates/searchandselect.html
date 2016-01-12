@@ -1,13 +1,18 @@
 ﻿<div class="searchandselect" ng-class="{ active: showList }">    
-    <div ng-click="show()">{{selecteditem.name}}</div>
+    <div ng-click="show()"><b>{{selecteditem[key]}}</b></div>
     <ul class="dropdown">
         <li>
-            <input type="text" />
-            <i class="glyphicon glyphicon-search"></i>
+            <div class="input-group">
+                <input type="text" ng-model="searchKey" class="form-control" placeholder="Search for..." ng-change="textChanged(searchKey)">
+                <span class="input-group-btn">
+                    <button class="search btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
+                </span>
+            </div><!-- /input-group -->
         </li>
-        <li>Showing records 1 to 10 of 50 <span></span></li>
-        <li ng-repeat="item in values" ng-click="selectItem(item)" >
-            <span>{{item.name}}</span>
+        <li class="text-right nomargin nopadding"><small>Showing records 1 to 10 of 50</small></li>
+        <li class="nomargin nopadding"><hr class="nomargin nopadding" /></li>
+        <li ng-repeat="item in values" ng-click="selectItem(item)">
+            <span>{{item[key]}}</span>
             <i class="glyphicon glyphicon-ok" ng-show="isActive(item)"></i>
         </li>
     </ul>

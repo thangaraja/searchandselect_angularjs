@@ -12,14 +12,10 @@
                     var request = $http({
                         method: "get",
                         url: urlBase + "Countries",
-                        params: { searchKey: searchKey, pageNumber: pageNumber}
-                    }).success(function (data) {
-                        deferred.resolve({
-                            data: data
-                        });
+                        params: { searchKey: searchKey, pageNumber: pageNumber }
                     });
 
-                    return deferred.promise;
+                    return (request.then(handleSuccess, handleError));
 
                 }
 
