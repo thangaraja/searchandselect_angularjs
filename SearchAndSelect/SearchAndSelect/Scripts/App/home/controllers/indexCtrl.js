@@ -9,11 +9,13 @@ appRoot.controller('indexCtrl', ['$scope', 'indexSvc', function ($scope, indexSv
         fetchingRecords = true;
 
         indexSvc.getCountries(searchKey, pagenumber)
-                    .then(function (countries) {
-                        if (pagenumber === 1)
-                            $scope.countries = countries;
+                    .then(function (result) {
+                        if (pagenumber === 1) {
+                            $scope.totalRecords = result.TotalRecords;
+                            $scope.countries = result.Records;
+                        }
                         else {
-                            $scope.countries = $scope.countries.concat(countries);
+                            $scope.countries = $scope.countries.concat(result.Records);
                         }
                         fetchingRecords = false;
                     },

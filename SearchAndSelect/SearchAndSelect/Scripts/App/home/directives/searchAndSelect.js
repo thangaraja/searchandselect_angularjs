@@ -6,7 +6,8 @@
             values: "=",
             selecteditem: "=",
             key: "@",
-            onscroll: "&"
+            onscroll: "&",
+            totalrecords: "="
         },
         templateUrl: '/Scripts/app/home/templates/searchandselect.html?54',
         link: function (scope, elm, attr) {
@@ -23,12 +24,13 @@
             };
 
             scope.textChanged = function (searchKey) {
-                if (searchKey.length > 2) {
+                if (searchKey.length == 0 || searchKey.length > 2) {
                     scope.onscroll({
                         searchKey: searchKey,
                         pagenumber: 1
                     });
                 }
+                
             };
 
             scope.show = function () {
