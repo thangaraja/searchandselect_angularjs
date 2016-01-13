@@ -3,32 +3,19 @@
     padding-bottom: 20px;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+
+.nomargin {
+    margin: 0px !important;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+.nopadding {
+    padding: 0px !important;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+small {
+    font-size: 70%;
 }
 
-.vertical-center {
-    min-height: 100%; /* Fallback for browsers do NOT support vh unit */
-    min-height: 100vh; /* These two lines are counted as one :-)       */
-    display: flex;
-    align-items: center;
-}
 
 .searchandselect {
     cursor: pointer;
@@ -73,8 +60,6 @@ textarea {
         max-height: 290px;
     }
 
-
-
     .searchandselect .dropdown li {
         margin: 10px 0 0;
         padding: 0 10px;
@@ -90,23 +75,3 @@ textarea {
         .searchandselect .dropdown li small {
             margin-right: 10px;
         }
-
-.padd-bot10 {
-    padding-bottom: 10px;
-}
-
-.padd10 {
-    padding: 10px;
-}
-
-.nomargin {
-    margin: 0px !important;
-}
-
-.nopadding {
-    padding: 0px !important;
-}
-
-small {
-    font-size: 70%;
-}
