@@ -3,3 +3,4 @@ bin
 *.user
 packages
 !NuGet.exe
+node_modules/
