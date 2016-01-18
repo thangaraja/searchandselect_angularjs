@@ -1,12 +1,18 @@
-angular-search-and-select
-Dropdown directives for AngularJS: Includes server side pagination & search records.
-  
-See demo: http://searchandselect.apphb.com/searchandselect/demo/
-Usage
-Below is the record format. It should have the properties “TotalRecords” and “Records”
- 
+## angular-search-and-select
 
- 
+Dropdown directives for AngularJS: Includes server side pagination & search records.
+
+Screenshot:
+
+![]({{site.baseurl}}/http://imgur.com/c1RgeTg)
+
+See demo: http://searchandselect.apphb.com/searchandselect/demo/
+
+Below is the record format. It should have the properties “TotalRecords” and “Records”.
+
+![]({{site.baseurl}}/http://imgur.com/SyA8mqs)
+
+Usage
 
 Include search and select in your module dependencies:
 var app = angular.module('yourapplicationmodule', ['angular-search-and-select']);
@@ -54,4 +60,3 @@ Developing
 Pull requests are welcome!
 License
 MIT
-
