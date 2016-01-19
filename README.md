@@ -68,7 +68,6 @@ appRoot.controller('indexCtrl', ['$scope', 'indexSvc', function ($scope, indexSv
 }]);
 ```
 The complete code is available in demo folder. Please refer.
-----------
 
 ## Contributing
 
