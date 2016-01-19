@@ -6,11 +6,17 @@ Dropdown directive for AngularJS: Includes server side pagination & search recor
 
 See demo: [http://searchandselect.apphb.com/searchandselect/demo/](http://searchandselect.apphb.com/searchandselect/demo/)
 
-### Result format. It should have the properties “TotalRecords” and “Records”.
+### Dependencies. 
+1. Twitter Bootstrap
+2. jQuery
+3. Font Awesome
+
+### Result format. 
+It should have the properties “TotalRecords” and “Records”.
 
 ![alt tag](http://i.imgur.com/SyA8mqs.png)
 
-## Usage
+### Usage
 Include search and select in your module dependencies:
 ```js
 var app = angular.module('yourapplicationmodule', ['angular-search-and-select']);
