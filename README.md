@@ -1,14 +1,12 @@
 ## angular-search-and-select
 
-Dropdown directives for AngularJS: Includes server side pagination & search records.
-
-### Screenshot:
+Dropdown directive for AngularJS: Includes server side pagination & search records.
 
 ![alt tag](http://i.imgur.com/c1RgeTg.png)
 
 See demo: [http://searchandselect.apphb.com/searchandselect/demo/](http://searchandselect.apphb.com/searchandselect/demo/)
 
-Below is the record format. It should have the properties “TotalRecords” and “Records”.
+### Result format. It should have the properties “TotalRecords” and “Records”.
 
 ![alt tag](http://i.imgur.com/SyA8mqs.png)
 
@@ -25,12 +23,13 @@ In view:
 
 Option             | Description
  ----------------- | ---------------------------- 
-selecteditem  | The item to be selected on load            
-values  | List of records
-totalRecords | Property which contains total records value
-onscroll | Path the method which calls the server method. Method should have the parameters searchKey, pagenumber
+selecteditem  | The item to be selected on load (E.g country)           
+values  | List of items to be shown in the dropdown result (E.g countries)
+totalRecords | Property which contains total records value (E.g totalRecords)
+onscroll | Method which calls the server method. Method should have the parameters searchKey, pagenumber (E.g getCountries)
+key | Defines the property that should be displayed to the user from objects
 
-In controller, setup the select options and object to hold the selected value:
+In controller, set the values for totalRecords,key, values:
 
 ```js
     appRoot.controller('indexCtrl', ['$scope', 'indexSvc', function ($scope, indexSvc) {
@@ -67,13 +66,13 @@ In controller, setup the select options and object to hold the selected value:
 
 ## Contributing
 
-Open an issue first to discuss potential changes/additions. If you have questions with the guide, feel free to leave them as issues in the repository. If you find a typo, create a pull request. The idea is to keep the content up to date and use github’s native feature to help tell the story with issues and PR’s, which are all searchable via google. Why? Because odds are if you have a question, someone else does too! You can learn more here at about how to contribute.
+If you have questions with the instructions above, feel free to add them as issues in the repository. 
 
 *By contributing to this repository you are agreeing to make your content available subject to the license of this repository.*
 
 ### Process
-    1. Discuss the changes in a GitHub issue.
-    2. Open a Pull Request, reference the issue, and explain the change and why it adds value.
+    1. Add/discuss the changes in a GitHub issue.
+    2. Create a Pull Request, provide enough details like why it is needed and reference the issue.
     3. The Pull Request will be evaluated and either merged or declined.
 
 ## License (The MIT License)
