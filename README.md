@@ -4,7 +4,7 @@ Dropdown directive for AngularJS: Includes server side pagination & search recor
 
 ![alt tag](http://i.imgur.com/c1RgeTg.png)
 
-See demo: [http://searchandselect.apphb.com/searchandselect/demo/](http://searchandselectangularjs.apphb.com/SearchAndSelect/demo/)
+See demo: [http://searchandselectangularjs.apphb.com/SearchAndSelect/demo/](http://searchandselectangularjs.apphb.com/SearchAndSelect/demo/)
 
 ### Dependencies. 
 1. Twitter Bootstrap
